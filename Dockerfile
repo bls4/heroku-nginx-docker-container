@@ -1,5 +1,5 @@
 FROM ubuntu:20.04
-FROM nginx:alpine
+
 
 ENV TZ=America/Los_Angeles
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -20,7 +20,7 @@ RUN rm -f /etc/apt/sources.list && \
 	python3-pip \
 	python-is-python3 \
 	nginx 
-
+FROM nginx:alpine
 COPY nginx/default.conf /etc/nginx/conf.d/
 COPY html/ /usr/share/nginx/html/
 
